@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using BetterConsoleTables;
 
 namespace A4__MovieLibraryAssignment
 {
-    class MovieList
+    public class MovieList
     {
         public List<Movie> movies;
         public string path = "C:\\Users\\muzic\\source\\repos\\A4__MovieLibraryAssignment\\A4__MovieLibraryAssignment\\movies.csv";
@@ -24,7 +23,7 @@ namespace A4__MovieLibraryAssignment
                 using (StreamReader file = new StreamReader(path))
                 {
                     string line;
-                    for (int k = 0; k <= 1; k++)
+                    for (int k = 0; k < 1; k++)
                     {
                         file.ReadLine();
                     }
@@ -80,7 +79,7 @@ namespace A4__MovieLibraryAssignment
             return temp;
         }
 
-        public void AddMovie(Movie movie)
+        public bool AddMovie(Movie movie)
         {
             int count = 0;
             foreach(Movie mov in movies)
@@ -94,12 +93,14 @@ namespace A4__MovieLibraryAssignment
             if(count >= 1)
             {
                 Console.WriteLine("Could not add movie: duplicate found");
+                return false;
             }
             else
             {
                 Console.WriteLine("Movie Added: " + movie.movieTitle);
                 movies.Add(movie);
                 WriteMoviesToFile();
+                return true;
             }
             
         }

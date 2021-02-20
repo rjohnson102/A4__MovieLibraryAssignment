@@ -1,18 +1,19 @@
 ﻿using System;
 using NLog;
 
-
 namespace A4__MovieLibraryAssignment
 {
     class Program
     {
-        static Menu menu = new Menu();
+        static Menu menu = new Menu();        
         static MovieList movieList = new MovieList();
+        static Logger logger = LogManager.GetCurrentClassLogger();
+        
         static void Main(string[] args)
-        {                       
+        {
+            logger.Info("Test");
             movieList.PopulateMovieList();
-            ReadInInput();
-            Logger log = LogManager.GetCurrentClassLogger();       
+            ReadInInput();            
         }
 
         public static void ReadInInput()
@@ -20,6 +21,7 @@ namespace A4__MovieLibraryAssignment
             bool isParsed = false;
             while (isParsed == false)
             {
+                Console.WriteLine();
                 menu.DisplayMenu();
 
                 ConsoleKeyInfo key = Console.ReadKey();
@@ -56,7 +58,7 @@ namespace A4__MovieLibraryAssignment
             {
                 Console.WriteLine("\nMovie Title: ");
                 title = Console.ReadLine();
-                isParsed = ParseString(title);
+                isParsed = ParseString(title);                
             }
             
 
@@ -96,6 +98,7 @@ namespace A4__MovieLibraryAssignment
             if(title == "")
             {
                 return false;
+                throw new NullReferenceException("Entry is null");                
             }
             else
             return true;
@@ -110,6 +113,7 @@ namespace A4__MovieLibraryAssignment
             else
             {
                 return false;
+                throw new Exception("Entry Not '1', '2', or 'x'");
             }
         }
     }

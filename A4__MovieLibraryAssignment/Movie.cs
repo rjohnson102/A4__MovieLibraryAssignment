@@ -4,7 +4,7 @@ using System.Text;
 
 namespace A4__MovieLibraryAssignment
 {
-    class Movie
+    public class Movie
     {
         public int movieId { get; set; }
         public string movieTitle { get; set; }

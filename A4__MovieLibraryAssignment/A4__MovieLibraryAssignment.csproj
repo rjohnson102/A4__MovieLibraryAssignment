@@ -6,9 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BetterConsoleTables" Version="1.1.2" />
+    <None Remove="C:\Users\muzic\.nuget\packages\nlog.config\4.7.7\contentFiles\any\any\NLog.config" />
+    <None Remove="Nlog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NLog" Version="4.7.7" />
-    <PackageReference Include="NLog.Config" Version="4.7.7" />
     <PackageReference Include="NLog.Schema" Version="4.7.7" />
   </ItemGroup>
 
